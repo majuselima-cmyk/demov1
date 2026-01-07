@@ -10,21 +10,21 @@
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
         <div>
           <label class="block text-xs md:text-sm font-medium text-gray-300 mb-2">Tipe</label>
-          <select class="w-full px-3 md:px-4 py-2 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200">
-            <option value="">Semua</option>
-            <option value="deposit">Deposit</option>
-            <option value="reward">Reward</option>
-            <option value="referral">Referral</option>
-            <option value="transfer">Transfer</option>
+          <select class="w-full px-3 md:px-4 py-2 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 appearance-none cursor-pointer">
+            <option value="" class="bg-gray-900 text-gray-300">Semua</option>
+            <option value="deposit" class="bg-gray-900 text-gray-100">Deposit</option>
+            <option value="reward" class="bg-gray-900 text-gray-100">Reward</option>
+            <option value="referral" class="bg-gray-900 text-gray-100">Referral</option>
+            <option value="transfer" class="bg-gray-900 text-gray-100">Transfer</option>
           </select>
         </div>
         <div>
           <label class="block text-xs md:text-sm font-medium text-gray-300 mb-2">Status</label>
-          <select class="w-full px-3 md:px-4 py-2 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200">
-            <option value="">Semua</option>
-            <option value="completed">Selesai</option>
-            <option value="pending">Pending</option>
-            <option value="failed">Gagal</option>
+          <select class="w-full px-3 md:px-4 py-2 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 appearance-none cursor-pointer">
+            <option value="" class="bg-gray-900 text-gray-300">Semua</option>
+            <option value="completed" class="bg-gray-900 text-gray-100">Selesai</option>
+            <option value="pending" class="bg-gray-900 text-gray-100">Pending</option>
+            <option value="failed" class="bg-gray-900 text-gray-100">Gagal</option>
           </select>
         </div>
         <div>

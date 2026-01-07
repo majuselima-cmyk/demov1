@@ -19,12 +19,12 @@
                 id="recipient"
                 v-model="form.recipient"
                 required
-                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200"
+                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 appearance-none cursor-pointer"
               >
-                <option value="">Pilih referral</option>
-                <option value="jane">Jane Smith (jane@example.com)</option>
-                <option value="bob">Bob Johnson (bob@example.com)</option>
-                <option value="charlie">Charlie Brown (charlie@example.com)</option>
+                <option value="" class="bg-gray-900 text-gray-300">Pilih referral</option>
+                <option value="jane" class="bg-gray-900 text-gray-100">Jane Smith (jane@example.com)</option>
+                <option value="bob" class="bg-gray-900 text-gray-100">Bob Johnson (bob@example.com)</option>
+                <option value="charlie" class="bg-gray-900 text-gray-100">Charlie Brown (charlie@example.com)</option>
               </select>
               <p class="mt-1 text-xs text-gray-400">Hanya referral yang sudah deposit dapat menerima token</p>
             </div>
