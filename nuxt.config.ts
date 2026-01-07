@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     // '@nuxtjs/supabase', // Disabled sementara - akan diaktifkan setelah setup database
     '@nuxtjs/tailwindcss'
   ],
+  nitro: {
+    preset: 'vercel'
+  },
   // supabase: {
   //   redirectOptions: {
   //     login: '/login',
