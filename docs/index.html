@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuan Platform - Dokumentasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        .nav-link {
+            transition: background-color 0.2s;
+        }
+        .nav-link:hover {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <h1 class="text-2xl font-bold text-gray-900">Cuan Platform</h1>
+                    <nav class="flex space-x-4">
+                        <a href="#overview" class="text-gray-600 hover:text-gray-900">Overview</a>
+                        <a href="#flow" class="text-gray-600 hover:text-gray-900">Flow</a>
+                        <a href="#tech-stack" class="text-gray-600 hover:text-gray-900">Tech Stack</a>
+                        <a href="#architecture" class="text-gray-600 hover:text-gray-900">Architecture</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Overview Section -->
+            <section id="overview" class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Deskripsi Platform</h3>
+                    <p class="text-gray-700 mb-4">
+                        Cuan Platform adalah platform staking berbasis blockchain dengan sistem referral dan token reward. 
+                        Platform ini memungkinkan pengguna untuk melakukan deposit minimal $10 menggunakan USDT, 
+                        mendapatkan reward staking harian, dan memperoleh keuntungan dari sistem referral.
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-6">Fitur Utama</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Landing Page untuk informasi dan registrasi</li>
+                        <li>Dashboard Member untuk mengelola staking dan referral</li>
+                        <li>Dashboard Admin untuk manajemen platform</li>
+                        <li>Sistem Registrasi dan Login</li>
+                        <li>Deposit USDT (Minimum $10)</li>
+                        <li>Staking dengan reward 0.5% per hari</li>
+                        <li>Sistem Coin dan Token reward</li>
+                        <li>Sistem Referral dengan transfer token</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 mt-6">Konsep Bisnis</h3>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-gray-800 mb-2">Deposit $10</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                            <li>Staking 0.5% per hari dari $10</li>
+                            <li>Mendapatkan 90% Coin (coin buatan platform)</li>
+                            <li>Mendapatkan 10% Token dari platform</li>
+                            <li>Token 10% dapat dicairkan ketika ada referral di bawahnya</li>
+                            <li>Token dapat ditransfer ke referral di bawahnya jika sudah deposit</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Flow Section -->
+            <section id="flow" class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">User Flow</h2>
+                
+                <div class="space-y-6">
+                    <!-- Registration Flow -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Registration Flow</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div>1. User mengakses Register Page</div>
+                                <div>2. Input data: Email, Password, Referral Code (opsional)</div>
+                                <div>3. Validasi input</div>
+                                <div>4. Create account via Supabase Auth</div>
+                                <div>5. Create user profile di database</div>
+                                <div>6. Link referral jika ada referral code</div>
+                                <div>7. Redirect ke Login Page</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Login Flow -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Login Flow</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div>1. User mengakses Login Page</div>
+                                <div>2. Input credentials: Email, Password</div>
+                                <div>3. Validasi credentials</div>
+                                <div>4. Check user role</div>
+                                <div>5. Redirect ke Dashboard sesuai role (Member/Admin)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deposit Flow -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Deposit Flow</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div>1. User mengakses Deposit Section di Dashboard</div>
+                                <div>2. Input amount (minimum $10)</div>
+                                <div>3. Select payment method (USDT)</div>
+                                <div>4. Generate payment address/QR</div>
+                                <div>5. Wait for payment confirmation</div>
+                                <div>6. Verify payment (webhook/manual)</div>
+                                <div>7. Process deposit:</div>
+                                <div class="ml-4">
+                                    - Add $10 ke user balance<br>
+                                    - Start Staking (0.5% per hari)<br>
+                                    - Allocate 90% sebagai Coins<br>
+                                    - Allocate 10% sebagai Tokens<br>
+                                    - Check referral chain<br>
+                                    - Transfer 10% tokens ke upline jika ada
+                                </div>
+                                <div>8. Update Dashboard</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Staking Flow -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Staking Flow</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div>1. Deposit confirmed</div>
+                                <div>2. Start staking process</div>
+                                <div>3. Calculate daily reward: 0.5% dari $10 = $0.05</div>
+                                <div>4. Cron job berjalan setiap hari</div>
+                                <div>5. Untuk setiap active staking:</div>
+                                <div class="ml-4">
+                                    - Calculate reward<br>
+                                    - Allocate 90% ke Coins<br>
+                                    - Allocate 10% ke Tokens<br>
+                                    - Update user balance<br>
+                                    - Check referral chain<br>
+                                    - Transfer tokens ke upline jika referral sudah deposit
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Referral Flow -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Referral Flow</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div>1. User A (Referrer) share referral code</div>
+                                <div>2. User B (Referee) register dengan referral code User A</div>
+                                <div>3. Link created: User B.upline = User A.id</div>
+                                <div>4. User B deposit $10</div>
+                                <div>5. Process:</div>
+                                <div class="ml-4">
+                                    - User B mendapat: 90% Coins, 10% Tokens (locked)<br>
+                                    - User A mendapat: 10% Tokens dari deposit User B (withdrawable)<br>
+                                    - User B tokens menjadi transferable ke referral mereka
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack Section -->
+            <section id="tech-stack" class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Tech Stack</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Frontend -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Frontend</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>Nuxt.js 3</strong> - Full-stack Vue.js framework</li>
+                            <li><strong>Tailwind CSS</strong> - Utility-first CSS framework</li>
+                            <li><strong>TypeScript</strong> - Type safety</li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Backend & Database</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>Supabase</strong> - Backend-as-a-Service</li>
+                            <li><strong>PostgreSQL</strong> - Main database</li>
+                            <li><strong>Supabase Auth</strong> - Authentication</li>
+                            <li><strong>Row Level Security</strong> - Data security</li>
+                        </ul>
+                    </div>
+
+                    <!-- Deployment -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Deployment</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>Vercel</strong> - Primary deployment platform</li>
+                            <li><strong>Cloudflare Pages</strong> - Alternative deployment</li>
+                        </ul>
+                    </div>
+
+                    <!-- External Services -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">External Services</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>USDT Payment Gateway</strong> - Payment processing</li>
+                            <li><strong>Webhook System</strong> - Transaction verification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Database Schema -->
+                <div class="bg-white rounded-lg shadow p-6 mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Database Schema</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">profiles</h4>
+                            <div class="code-block text-xs">
+id (uuid), email (text), referral_code (text, unique), upline_id (uuid), role (text), created_at, updated_at
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">deposits</h4>
+                            <div class="code-block text-xs">
+id (uuid), user_id (uuid), amount (decimal), currency (text), status (text), transaction_hash (text), created_at, confirmed_at
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">staking</h4>
+                            <div class="code-block text-xs">
+id (uuid), user_id (uuid), amount (decimal), daily_rate (decimal), status (text), started_at, last_reward_at
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">user_balances</h4>
+                            <div class="code-block text-xs">
+id (uuid), user_id (uuid), coins_balance (decimal), tokens_balance (decimal), withdrawable_tokens (decimal)
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">referral_chain</h4>
+                            <div class="code-block text-xs">
+id (uuid), referrer_id (uuid), referee_id (uuid), level (integer), created_at
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section id="architecture" class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Architecture</h2>
+                
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">System Layers</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Presentation Layer</h4>
+                            <p class="text-gray-700 text-sm mt-1">Pages, Components, Layouts</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Business Logic Layer</h4>
+                            <p class="text-gray-700 text-sm mt-1">Composables, Middleware, Utilities</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Data Access Layer</h4>
+                            <p class="text-gray-700 text-sm mt-1">Server API Routes, Database Functions</p>
+                        </div>
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">External Integration Layer</h4>
+                            <p class="text-gray-700 text-sm mt-1">USDT Payment Gateway, Webhooks</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Project Structure</h3>
+                    <div class="code-block text-xs">
+<pre>cuan-platform/
+├── assets/css/main.css
+├── components/
+│   ├── Landing/
+│   ├── Dashboard/
+│   └── Admin/
+├── composables/
+│   ├── useAuth.ts
+│   ├── useStaking.ts
+│   └── useReferral.ts
+├── layouts/
+│   ├── default.vue
+│   ├── dashboard.vue
+│   └── admin.vue
+├── middleware/
+│   ├── auth.ts
+│   └── admin.ts
+├── pages/
+│   ├── index.vue
+│   ├── login.vue
+│   ├── register.vue
+│   ├── dashboard/
+│   └── admin/
+├── server/api/
+│   ├── deposits/
+│   ├── staking/
+│   └── referrals/
+└── docs/</pre>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow p-6 mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Security Architecture</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>Supabase Auth untuk authentication</li>
+                        <li>JWT tokens untuk session management</li>
+                        <li>Row Level Security (RLS) untuk data protection</li>
+                        <li>Role-based access control (member/admin)</li>
+                        <li>HTTPS only</li>
+                        <li>Environment variables untuk secrets</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <p class="text-center text-gray-600 text-sm">Cuan Platform Documentation - 2024</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+

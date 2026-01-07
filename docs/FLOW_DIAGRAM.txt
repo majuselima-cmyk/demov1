@@ -1,0 +1,265 @@
+CUAN PLATFORM - FLOW DIAGRAM
+=============================
+
+1. LANDING PAGE FLOW
+---------------------
+                    Visitor
+                       |
+                       v
+                 Landing Page
+                       |
+        +--------------+--------------+
+        |                              |
+        v                              v
+   Register Button              Login Button
+        |                              |
+        v                              v
+   Register Page                 Login Page
+        |                              |
+        v                              v
+   Fill Form                    Fill Credentials
+        |                              |
+        v                              v
+   Submit                        Submit
+        |                              |
+        v                              v
+   Email Verification            Check Role
+        |                              |
+        v                    +---------+---------+
+   Login Page                 |                 |
+                             v                 v
+                        Admin?            Member?
+                             |                 |
+                             v                 v
+                    Dashboard Admin    Dashboard Member
+
+
+2. REGISTRATION FLOW
+--------------------
+        Start
+          |
+          v
+    Register Page
+          |
+          v
+    Input Data:
+    - Email
+    - Password
+    - Referral Code (Optional)
+          |
+          v
+    Validate Input
+          |
+    +-----+-----+
+    |           |
+Invalid      Valid
+    |           |
+    v           v
+Show Error  Create Account
+    |           |
+    v           v
+Back to    Create Profile
+Register       |
+              v
+         Link Referral
+              |
+              v
+         Send Email
+              |
+              v
+         Redirect Login
+
+
+3. DEPOSIT FLOW
+---------------
+    Dashboard Member
+          |
+          v
+    Deposit Section
+          |
+          v
+    Input Amount (Min $10)
+          |
+          v
+    Select USDT Payment
+          |
+          v
+    Generate Payment Address
+          |
+          v
+    Wait for Payment
+          |
+          v
+    Verify Payment
+          |
+          v
+    Process Deposit:
+    ├─ Add $10 to balance
+    ├─ Start Staking (0.5%/day)
+    ├─ Allocate 90% Coins
+    ├─ Allocate 10% Tokens
+    └─ Check Referral Chain
+          |
+          v
+    If has Upline:
+    └─ Transfer 10% tokens to upline
+          |
+          v
+    Update Dashboard
+
+
+4. STAKING FLOW
+---------------
+    Deposit Confirmed
+          |
+          v
+    Start Staking
+          |
+          v
+    Calculate Daily Reward:
+    - Base: $10
+    - Rate: 0.5%
+    - Reward: $0.05/day
+          |
+          v
+    Daily Cron Job
+          |
+          v
+    For Each Active Staking:
+          |
+          v
+    Calculate Reward
+          |
+          v
+    Allocate:
+    ├─ 90% to Coins
+    └─ 10% to Tokens
+          |
+          v
+    Update User Balance
+          |
+          v
+    Check Referral Chain
+          |
+          v
+    If Referral Deposited:
+    └─ Transfer tokens to upline
+
+
+5. REFERRAL FLOW
+----------------
+    User A (Referrer)
+          |
+          v
+    Share Referral Code
+          |
+          v
+    User B (Referee)
+          |
+          v
+    Register with Code
+          |
+          v
+    Link Created:
+    User B.upline = User A.id
+          |
+          v
+    User B Deposits $10
+          |
+          v
+    Process:
+    ├─ User B gets:
+    │  ├─ 90% Coins
+    │  └─ 10% Tokens (locked)
+    │
+    └─ User A gets:
+       └─ 10% Tokens (withdrawable)
+          |
+          v
+    User B tokens become
+    transferable to their referrals
+
+
+6. TOKEN TRANSFER FLOW
+----------------------
+    Dashboard Member
+          |
+          v
+    Token Section
+          |
+          v
+    View Available Tokens
+          |
+          v
+    Select Transfer
+          |
+          v
+    Input:
+    - Recipient (Referral below)
+    - Amount
+          |
+          v
+    Validate:
+    ├─ Recipient in referral chain?
+    ├─ Recipient deposited?
+    └─ Sufficient balance?
+          |
+          v
+    Transfer Tokens
+          |
+          v
+    Update Balances
+
+
+7. ADMIN FLOW
+-------------
+    Admin Login
+          |
+          v
+    Dashboard Admin
+          |
+    +-----+-----+-----+-----+
+    |     |     |     |     |
+    v     v     v     v     v
+  User  Deposit Staking Token Reports
+  Mgmt   Mgmt   Mgmt   Mgmt
+    |     |     |     |     |
+    v     v     v     v     v
+  View  Approve View  View  Stats
+  Edit  Reject  Adjust Dist  Export
+
+
+DATA FLOW ARCHITECTURE
+======================
+
+Client (Browser)
+       |
+       | HTTP/HTTPS
+       |
+Nuxt.js Application
+       |
+       | Supabase Client
+       |
+Supabase Backend
+       |
+       +-- Authentication Service
+       |
+       +-- PostgreSQL Database
+       |   ├─ profiles
+       |   ├─ deposits
+       |   ├─ staking
+       |   ├─ user_balances
+       |   ├─ referral_chain
+       |   └─ token_transfers
+       |
+       +-- Row Level Security
+       |
+       | External API
+       |
+USDT Payment Gateway
+       |
+       +-- Payment Processing
+       +-- Transaction Verification
+       +-- Webhook Callbacks
+
+
