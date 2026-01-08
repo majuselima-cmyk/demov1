@@ -1,31 +1,31 @@
 <template>
   <div>
     <div class="mb-4 md:mb-6">
-      <h1 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
-      <p class="text-sm md:text-base text-gray-600">Overview platform dan statistik</p>
+      <h1 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Dashboard Admin</h1>
+      <p class="text-sm md:text-base text-gray-600">Ringkasan platform dan statistik</p>
     </div>
 
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
       <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-        <p class="text-gray-600 text-xs md:text-sm mb-2">Total Users</p>
+        <p class="text-gray-600 text-xs md:text-sm mb-2">Total Pengguna</p>
         <p class="text-2xl md:text-3xl font-bold text-cyan-600">1,250</p>
         <p class="text-gray-500 text-xs mt-2">+125 bulan ini</p>
       </div>
       <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-        <p class="text-gray-600 text-xs md:text-sm mb-2">Total Deposits</p>
+        <p class="text-gray-600 text-xs md:text-sm mb-2">Total Deposit</p>
         <p class="text-2xl md:text-3xl font-bold text-purple-600">$125,000</p>
         <p class="text-gray-500 text-xs mt-2">+$12,500 bulan ini</p>
       </div>
       <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-        <p class="text-gray-600 text-xs md:text-sm mb-2">Active Staking</p>
+        <p class="text-gray-600 text-xs md:text-sm mb-2">Staking Aktif</p>
         <p class="text-2xl md:text-3xl font-bold text-green-600">$98,500</p>
         <p class="text-gray-500 text-xs mt-2">78.8% dari deposit</p>
       </div>
       <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl p-4 md:p-6 shadow-sm hover:shadow-md transition-shadow">
-        <p class="text-gray-600 text-xs md:text-sm mb-2">Pending Withdraws</p>
+        <p class="text-gray-600 text-xs md:text-sm mb-2">Withdraw Tertunda</p>
         <p class="text-2xl md:text-3xl font-bold text-orange-600">$2,500</p>
-        <p class="text-gray-500 text-xs mt-2">12 requests</p>
+        <p class="text-gray-500 text-xs mt-2">12 permintaan</p>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
         <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl shadow-sm p-4 md:p-6">
           <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
             <h3 class="text-base md:text-lg font-semibold text-gray-900">Deposit Terkini</h3>
-            <NuxtLink to="/cp7x9k2m/deposits" class="text-cyan-600 text-xs md:text-sm hover:text-cyan-700 hover:underline whitespace-nowrap transition-colors">
+            <NuxtLink to="/cp7x9k2m/dashboard/deposits" class="text-cyan-600 text-xs md:text-sm hover:text-cyan-700 hover:underline whitespace-nowrap transition-colors">
               Lihat Semua
             </NuxtLink>
           </div>
@@ -72,7 +72,7 @@
               <div class="text-right">
                 <p class="font-semibold text-xs md:text-sm text-purple-600">+$500.00</p>
                 <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs font-medium">
-                  Pending
+                  Tertunda
                 </span>
               </div>
             </div>
@@ -99,8 +99,8 @@
         <!-- Pending Withdraws -->
         <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl shadow-sm p-4 md:p-6">
           <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
-            <h3 class="text-base md:text-lg font-semibold text-gray-900">Withdraw Pending</h3>
-            <NuxtLink to="/cp7x9k2m/withdraws" class="text-orange-600 text-xs md:text-sm hover:text-orange-700 hover:underline whitespace-nowrap transition-colors">
+            <h3 class="text-base md:text-lg font-semibold text-gray-900">Withdraw Tertunda</h3>
+            <NuxtLink to="/cp7x9k2m/dashboard/withdraws" class="text-orange-600 text-xs md:text-sm hover:text-orange-700 hover:underline whitespace-nowrap transition-colors">
               Lihat Semua
             </NuxtLink>
           </div>
@@ -121,7 +121,7 @@
                   <p class="text-xs text-gray-500">TRC20</p>
                 </div>
                 <button class="px-3 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200 transition-colors">
-                  Approve
+                  Setujui
                 </button>
               </div>
             </div>
@@ -141,7 +141,7 @@
                   <p class="text-xs text-gray-500">ERC20</p>
                 </div>
                 <button class="px-3 py-1 bg-green-100 text-green-700 rounded text-xs font-medium hover:bg-green-200 transition-colors">
-                  Approve
+                  Setujui
                 </button>
               </div>
             </div>
@@ -153,38 +153,38 @@
       <div class="space-y-4 md:space-y-6">
         <!-- Quick Actions -->
         <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl shadow-sm p-4 md:p-6">
-          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">Aksi Cepat</h3>
           <div class="space-y-2 md:space-y-3">
             <NuxtLink
-              to="/cp7x9k2m/users"
+              to="/cp7x9k2m/dashboard/users"
               class="block w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-2 md:py-3 rounded-lg font-medium text-sm md:text-base text-center hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 shadow-md"
             >
-              Manage Users
+              Kelola Pengguna
             </NuxtLink>
             <NuxtLink
-              to="/cp7x9k2m/deposits"
+              to="/cp7x9k2m/dashboard/deposits"
               class="block w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base text-center hover:bg-gray-200 transition-all duration-200"
             >
-              Approve Deposits
+              Setujui Deposit
             </NuxtLink>
             <NuxtLink
-              to="/cp7x9k2m/withdraws"
+              to="/cp7x9k2m/dashboard/withdraws"
               class="block w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base text-center hover:bg-gray-200 transition-all duration-200"
             >
-              Process Withdraws
+              Proses Withdraw
             </NuxtLink>
             <NuxtLink
-              to="/cp7x9k2m/settings"
+              to="/cp7x9k2m/dashboard/settings"
               class="block w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 md:py-3 rounded-lg font-medium text-sm md:text-base text-center hover:bg-gray-200 transition-all duration-200"
             >
-              Platform Settings
+              Pengaturan Platform
             </NuxtLink>
           </div>
         </div>
 
         <!-- Platform Stats -->
         <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl shadow-sm p-4 md:p-6">
-          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">Platform Stats</h3>
+          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">Statistik Platform</h3>
           <div class="space-y-3 md:space-y-4">
             <div>
               <div class="flex items-center justify-between mb-2">
@@ -206,13 +206,13 @@
             </div>
             <div>
               <div class="flex items-center justify-between mb-2">
-                <span class="text-xs md:text-sm text-gray-600">Daily Rewards Paid</span>
+                <span class="text-xs md:text-sm text-gray-600">Reward Harian Dibayar</span>
                 <span class="text-base md:text-lg font-bold text-green-600">$492.50</span>
               </div>
             </div>
             <div>
               <div class="flex items-center justify-between mb-2">
-                <span class="text-xs md:text-sm text-gray-600">Active Referrals</span>
+                <span class="text-xs md:text-sm text-gray-600">Referral Aktif</span>
                 <span class="text-base md:text-lg font-bold text-orange-600">850</span>
               </div>
             </div>
@@ -221,10 +221,10 @@
 
         <!-- System Status -->
         <div class="bg-white border border-gray-200 rounded-lg md:rounded-xl shadow-sm p-4 md:p-6">
-          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">System Status</h3>
+          <h3 class="text-base md:text-lg font-semibold text-gray-900 mb-4">Status Sistem</h3>
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs md:text-sm text-gray-600">API Status</span>
+              <span class="text-xs md:text-sm text-gray-600">Status API</span>
               <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">
                 Online
               </span>
@@ -232,17 +232,17 @@
             <div class="flex items-center justify-between">
               <span class="text-xs md:text-sm text-gray-600">Database</span>
               <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">
-                Connected
+                Terhubung
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs md:text-sm text-gray-600">Staking Engine</span>
+              <span class="text-xs md:text-sm text-gray-600">Mesin Staking</span>
               <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">
-                Active
+                Aktif
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs md:text-sm text-gray-600">Last Backup</span>
+              <span class="text-xs md:text-sm text-gray-600">Backup Terakhir</span>
               <span class="text-xs text-gray-500">16 Jan 2024, 00:00</span>
             </div>
           </div>

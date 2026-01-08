@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   //     exclude: ['/']
   //   }
   // },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/datatable-dark.css', '~/assets/css/input-dark.css', '~/assets/css/input-login.css'],
   runtimeConfig: {
     public: {
       // supabaseUrl: process.env.SUPABASE_URL,

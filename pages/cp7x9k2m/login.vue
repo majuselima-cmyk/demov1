@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-black relative overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen bg-gray-50 relative overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <!-- Animated Background -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
       <div class="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl"></div>
@@ -9,23 +9,21 @@
     <div class="max-w-md w-full relative z-10">
       <!-- Logo/Header -->
       <div class="text-center mb-8">
-        <NuxtLink to="/" class="inline-block">
-          <h1 class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Cuan Platform</h1>
-        </NuxtLink>
-        <p class="mt-2 text-gray-400">Masuk ke akun Anda</p>
+        <h1 class="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Admin Panel</h1>
+        <p class="mt-2 text-gray-600">Masuk ke Admin Dashboard</p>
       </div>
 
       <!-- Login Form -->
-      <div class="bg-black/60 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-2xl shadow-cyan-500/20 p-8">
+      <div class="bg-white backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl p-8">
         <form @submit.prevent="handleLogin" class="space-y-6">
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
-              Email
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email Admin
             </label>
             <div class="relative">
               <!-- Email Icon -->
               <div class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-cyan-400/70">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
               </div>
@@ -34,20 +32,20 @@
                 v-model="form.email"
                 type="email"
                 required
-                class="w-full pl-10 pr-4 py-3 bg-black/40 backdrop-blur-sm border-[0.5px] border-cyan-500/30 rounded-lg text-gray-100 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/60 hover:border-[0.5px] hover:border-cyan-500/50 transition-all duration-200 outline-none"
-                placeholder="nama@email.com"
+                class="w-full pl-10 pr-4 py-3 bg-white border-[0.5px] border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-600 hover:border-[0.5px] hover:border-cyan-400 transition-all duration-200 outline-none"
+                placeholder="admin@example.com"
               />
             </div>
           </div>
 
           <div>
-            <label for="password" class="block text-sm font-medium text-gray-300 mb-2">
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
             <div class="relative">
               <!-- Password Icon -->
               <div class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-cyan-400/70">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-400">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                 </svg>
               </div>
@@ -56,14 +54,14 @@
                 v-model="form.password"
                 :type="showPassword ? 'text' : 'password'"
                 required
-                class="w-full pl-10 pr-10 py-3 bg-black/40 backdrop-blur-sm border-[0.5px] border-cyan-500/30 rounded-lg text-gray-100 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/60 hover:border-[0.5px] hover:border-cyan-500/50 transition-all duration-200 outline-none"
+                class="w-full pl-10 pr-10 py-3 bg-white border-[0.5px] border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-600 hover:border-[0.5px] hover:border-cyan-400 transition-all duration-200 outline-none"
                 placeholder="Masukkan password"
               />
               <!-- Eye Toggle Button -->
               <button
                 type="button"
                 @click="showPassword = !showPassword"
-                class="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-400/70 hover:text-cyan-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 rounded"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 rounded"
                 tabindex="-1"
               >
                 <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -83,13 +81,13 @@
                 id="remember"
                 v-model="form.remember"
                 type="checkbox"
-                class="w-4 h-4 text-cyan-500 bg-black/40 border-cyan-500/30 rounded focus:ring-cyan-500 focus:ring-2"
+                class="w-4 h-4 text-cyan-600 bg-white border-gray-300 rounded focus:ring-cyan-500 focus:ring-2"
               />
-              <label for="remember" class="ml-2 block text-sm text-gray-400">
+              <label for="remember" class="ml-2 block text-sm text-gray-600">
                 Ingat saya
               </label>
             </div>
-            <NuxtLink to="/forgot-password" class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-200">
+            <NuxtLink to="/forgot-password" class="text-sm text-cyan-600 hover:text-cyan-700 transition-colors duration-200">
               Lupa password?
             </NuxtLink>
           </div>
@@ -97,38 +95,18 @@
           <button
             type="submit"
             :disabled="loading"
-            class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/30"
+            class="w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
           >
             {{ loading ? 'Masuk...' : 'Masuk' }}
           </button>
         </form>
 
-        <div class="mt-6">
-          <div class="relative">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-cyan-500/20"></div>
-            </div>
-            <div class="relative flex justify-center text-sm">
-              <span class="px-2 bg-black/60 text-gray-400">atau</span>
-            </div>
-          </div>
-
-          <div class="mt-6 text-center">
-            <p class="text-sm text-gray-400">
-              Belum punya akun?
-              <NuxtLink to="/register" class="text-cyan-400 font-semibold hover:text-cyan-300 transition-colors duration-200">
-                Daftar di sini
-              </NuxtLink>
-            </p>
-          </div>
+        <!-- Info Box -->
+        <div class="mt-6 bg-cyan-50 border border-cyan-200 rounded-lg p-4">
+          <p class="text-sm text-cyan-800">
+            <strong>Peringatan:</strong> Hanya admin yang berwenang yang dapat mengakses halaman ini.
+          </p>
         </div>
-      </div>
-
-      <!-- Info Box -->
-      <div class="mt-6 bg-green-500/10 backdrop-blur-sm border border-green-500/30 rounded-lg p-4">
-        <p class="text-sm text-green-400">
-          <strong>Tips keamanan:</strong> Jangan bagikan kredensial login Anda kepada siapapun.
-        </p>
       </div>
     </div>
   </div>
@@ -154,10 +132,9 @@ const handleLogin = async () => {
   // Simulasi login (akan diintegrasikan dengan Supabase nanti)
   setTimeout(() => {
     loading.value = false
-    alert('Login berhasil!')
-    navigateTo('/dashboard')
+    // Redirect ke dashboard admin
+    navigateTo('/cp7x9k2m/dashboard')
   }, 1500)
 }
 </script>
-
 

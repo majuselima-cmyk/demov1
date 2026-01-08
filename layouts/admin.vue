@@ -52,58 +52,58 @@
         <!-- Navigation -->
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           <NuxtLink
-            to="/cp7x9k2m"
+            to="/cp7x9k2m/dashboard"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard' }"
           >
             <span class="font-medium">Dashboard</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/users"
+            to="/cp7x9k2m/dashboard/users"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/users' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/users' }"
           >
             <span class="font-medium">Users</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/deposits"
+            to="/cp7x9k2m/dashboard/deposits"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/deposits' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/deposits' }"
           >
             <span class="font-medium">Deposits</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/withdraws"
+            to="/cp7x9k2m/dashboard/withdraws"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/withdraws' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/withdraws' }"
           >
             <span class="font-medium">Withdraws</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/transactions"
+            to="/cp7x9k2m/dashboard/transactions"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/transactions' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/transactions' }"
           >
             <span class="font-medium">Transactions</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/staking"
+            to="/cp7x9k2m/dashboard/staking"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/staking' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/staking' }"
           >
             <span class="font-medium">Staking</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/referrals"
+            to="/cp7x9k2m/dashboard/referral"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/referrals' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/referral' }"
           >
-            <span class="font-medium">Referrals</span>
+            <span class="font-medium">Referral</span>
           </NuxtLink>
           <NuxtLink
-            to="/cp7x9k2m/settings"
+            to="/cp7x9k2m/dashboard/settings"
             class="flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-cyan-50 hover:text-cyan-600 hover:border-l-2 hover:border-cyan-500 transition-all duration-200"
-            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/settings' }"
+            :class="{ 'bg-cyan-50 text-cyan-600 border-l-2 border-cyan-500 shadow-sm': $route.path === '/cp7x9k2m/dashboard/settings' }"
           >
             <span class="font-medium">Settings</span>
           </NuxtLink>
@@ -127,7 +127,7 @@
               to="/dashboard"
               class="block w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 rounded-lg font-medium hover:bg-gray-200 transition-all duration-200 text-center text-sm"
             >
-              User View
+              Tampilan User
             </NuxtLink>
             <button
               @click="handleLogout"
@@ -148,7 +148,7 @@
           <div class="flex items-center justify-end gap-4">
             <div class="flex items-center space-x-4">
               <div class="text-right hidden sm:block bg-cyan-50 border border-cyan-200 rounded-lg px-4 py-2">
-                <p class="text-xs text-gray-600">Total Platform Balance</p>
+                <p class="text-xs text-gray-600">Total Saldo Platform</p>
                 <p class="text-base md:text-lg font-bold text-cyan-600">$125,000.00</p>
               </div>
             </div>
@@ -170,7 +170,7 @@ const isMobileSidebarOpen = ref(false)
 
 const handleLogout = () => {
   // Simulasi logout
-  navigateTo('/login')
+  navigateTo('/cp7x9k2m/login')
 }
 
 // Close sidebar when route changes (mobile)

@@ -22,7 +22,7 @@
                 min="10"
                 step="0.01"
                 required
-                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200"
+                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/60 hover:border-cyan-500/50 transition-all duration-200"
                 placeholder="10.00"
               />
               <p class="mt-1 text-xs text-gray-400">Minimum withdraw: $10.00 USDT</p>
@@ -32,14 +32,65 @@
               <label for="walletAddress" class="block text-xs md:text-sm font-medium text-gray-300 mb-2">
                 Alamat Wallet USDT
               </label>
-              <input
-                id="walletAddress"
-                v-model="form.walletAddress"
-                type="text"
-                required
-                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200"
-                placeholder="Masukkan alamat wallet USDT"
-              />
+              <div class="relative">
+                <!-- Wallet Icon -->
+                <div class="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-cyan-400/70">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
+                  </svg>
+                </div>
+                <!-- Input with left padding for icon -->
+                <input
+                  id="walletAddress"
+                  v-model="form.walletAddress"
+                  type="text"
+                  required
+                  class="w-full pl-10 md:pl-12 pr-24 md:pr-28 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/60 hover:border-cyan-500/50 transition-all duration-200"
+                  placeholder="Masukkan alamat wallet USDT"
+                />
+                <!-- Paste Button -->
+                <button
+                  type="button"
+                  @click="handlePaste"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1.5 px-2 md:px-3 py-1.5 md:py-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-lg text-xs md:text-sm font-medium hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-cyan-500/50"
+                  :disabled="pasting"
+                >
+                  <svg 
+                    v-if="!pasting"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke-width="1.5" 
+                    stroke="currentColor" 
+                    class="w-4 h-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+                  </svg>
+                  <svg 
+                    v-else
+                    class="animate-spin h-4 w-4" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24"
+                  >
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span class="hidden sm:inline">{{ pasting ? 'Pasting...' : 'Paste' }}</span>
+                </button>
+              </div>
+              <p v-if="pasteSuccess" class="mt-1 text-xs text-green-400 flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Alamat wallet berhasil dipaste!
+              </p>
+              <p v-if="pasteError" class="mt-1 text-xs text-red-400 flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+                Gagal paste alamat wallet
+              </p>
             </div>
 
             <div>
@@ -149,6 +200,74 @@ const form = ref({
 })
 
 const loading = ref(false)
+const pasting = ref(false)
+const pasteSuccess = ref(false)
+const pasteError = ref(false)
+
+const handlePaste = async () => {
+  pasting.value = true
+  pasteSuccess.value = false
+  pasteError.value = false
+
+  try {
+    // Check if Clipboard API is available
+    if (!navigator.clipboard || !navigator.clipboard.readText) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea')
+      textArea.style.position = 'fixed'
+      textArea.style.opacity = '0'
+      textArea.value = ''
+      document.body.appendChild(textArea)
+      textArea.focus()
+      
+      const success = document.execCommand('paste')
+      if (success) {
+        const pastedText = textArea.value.trim()
+        if (pastedText.length > 0) {
+          form.value.walletAddress = pastedText
+          pasteSuccess.value = true
+          setTimeout(() => {
+            pasteSuccess.value = false
+          }, 3000)
+        } else {
+          pasteError.value = true
+          setTimeout(() => {
+            pasteError.value = false
+          }, 3000)
+        }
+      } else {
+        pasteError.value = true
+        setTimeout(() => {
+          pasteError.value = false
+        }, 3000)
+      }
+      document.body.removeChild(textArea)
+    } else {
+      // Modern Clipboard API
+      const text = await navigator.clipboard.readText()
+      if (text && text.trim().length > 0) {
+        form.value.walletAddress = text.trim()
+        pasteSuccess.value = true
+        setTimeout(() => {
+          pasteSuccess.value = false
+        }, 3000)
+      } else {
+        pasteError.value = true
+        setTimeout(() => {
+          pasteError.value = false
+        }, 3000)
+      }
+    }
+  } catch (error) {
+    console.error('Error pasting:', error)
+    pasteError.value = true
+    setTimeout(() => {
+      pasteError.value = false
+    }, 3000)
+  } finally {
+    pasting.value = false
+  }
+}
 
 const handleWithdraw = () => {
   if (parseFloat(form.value.amount) < 10) {

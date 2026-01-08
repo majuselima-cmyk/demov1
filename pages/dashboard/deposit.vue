@@ -22,7 +22,7 @@
                 min="10"
                 step="0.01"
                 required
-                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200"
+                class="w-full px-3 md:px-4 py-2 md:py-3 bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg text-sm md:text-base text-gray-100 placeholder-gray-500 focus:ring-1 focus:ring-cyan-500/50 focus:border-cyan-500/60 hover:border-cyan-500/50 transition-all duration-200"
                 placeholder="10.00"
               />
               <p class="mt-1 text-xs text-gray-400">Minimum deposit: $10.00 USDT</p>

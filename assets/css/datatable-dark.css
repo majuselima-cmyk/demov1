@@ -1,0 +1,167 @@
+/* Global Dark Theme Override untuk vue3-easy-data-table di Dashboard Member */
+
+/* Force remove all white borders dan set semua border ke cyan tipis */
+.customize-table-dark,
+.customize-table-dark *,
+.customize-table-dark table,
+.customize-table-dark table *,
+.customize-table-dark thead,
+.customize-table-dark thead *,
+.customize-table-dark tbody,
+.customize-table-dark tbody *,
+.customize-table-dark tr,
+.customize-table-dark th,
+.customize-table-dark td,
+.customize-table-dark .easy-table-wrapper,
+.customize-table-dark .easy-table-wrapper *,
+.customize-table-dark .easy-table-header,
+.customize-table-dark .easy-table-header *,
+.customize-table-dark .easy-table-body,
+.customize-table-dark .easy-table-body * {
+  border-color: rgba(6, 182, 212, 0.2) !important;
+  border-width: 0.5px !important;
+}
+
+/* Remove semua border putih default */
+.customize-table-dark table,
+.customize-table-dark table * {
+  border: none !important;
+  border-collapse: collapse !important;
+}
+
+/* Header borders */
+.customize-table-dark .easy-table-header,
+.customize-table-dark thead {
+  border: none !important;
+  border-bottom: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.customize-table-dark .easy-table-header th,
+.customize-table-dark thead th {
+  border: none !important;
+  border-right: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+  border-bottom: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.customize-table-dark .easy-table-header th:last-child,
+.customize-table-dark thead th:last-child {
+  border-right: none !important;
+}
+
+/* Body row borders */
+.customize-table-dark .easy-table-body tr,
+.customize-table-dark tbody tr {
+  border: none !important;
+  border-bottom: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+  border-left: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Hover effect - cyan glow */
+.customize-table-dark .easy-table-body tr:hover,
+.customize-table-dark tbody tr:hover {
+  background-color: rgba(6, 182, 212, 0.15) !important;
+  border-left: 2px solid rgba(6, 182, 212, 0.5) !important;
+  box-shadow: -2px 0 8px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Ensure text is visible on hover */
+.customize-table-dark .easy-table-body tr:hover td,
+.customize-table-dark tbody tr:hover td {
+  color: #f3f4f6 !important;
+}
+
+.customize-table-dark .easy-table-body tr:hover td span,
+.customize-table-dark tbody tr:hover td span,
+.customize-table-dark .easy-table-body tr:hover td p,
+.customize-table-dark tbody tr:hover td p {
+  color: inherit !important;
+}
+
+/* Keep colored badges and text visible on hover */
+.customize-table-dark .easy-table-body tr:hover td .px-2,
+.customize-table-dark tbody tr:hover td .px-2 {
+  opacity: 1 !important;
+}
+
+/* Ensure colored text classes remain visible on hover */
+.customize-table-dark tr:hover .text-green-400,
+.customize-table-dark tr:hover .text-red-400,
+.customize-table-dark tr:hover .text-blue-400,
+.customize-table-dark tr:hover .text-cyan-400,
+.customize-table-dark tr:hover .text-purple-400,
+.customize-table-dark tr:hover .text-orange-400,
+.customize-table-dark tr:hover .text-yellow-400,
+.customize-table-dark tr:hover .text-gray-400,
+.customize-table-dark tr:hover .text-gray-100,
+.customize-table-dark tr:hover .text-gray-300 {
+  opacity: 1 !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Make sure badge colors stay visible */
+.customize-table-dark tr:hover span[class*="bg-green"],
+.customize-table-dark tr:hover span[class*="bg-red"],
+.customize-table-dark tr:hover span[class*="bg-blue"],
+.customize-table-dark tr:hover span[class*="bg-yellow"],
+.customize-table-dark tr:hover span[class*="bg-purple"] {
+  opacity: 1 !important;
+  filter: brightness(1.05) !important;
+}
+
+/* Body cell borders */
+.customize-table-dark .easy-table-body td,
+.customize-table-dark tbody td {
+  border: none !important;
+  border-right: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.customize-table-dark .easy-table-body td:last-child,
+.customize-table-dark tbody td:last-child {
+  border-right: none !important;
+}
+
+/* Pagination borders */
+.customize-table-dark .easy-table-pagination {
+  border: none !important;
+  border-top: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.customize-table-dark .easy-table-pagination button {
+  border: 0.5px solid rgba(6, 182, 212, 0.3) !important;
+}
+
+.customize-table-dark .easy-table-pagination select {
+  border: 0.5px solid rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Index column borders */
+.customize-table-dark .easy-table-index-header {
+  border: none !important;
+  border-right: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+  border-bottom: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.customize-table-dark .easy-table-index {
+  border: none !important;
+  border-right: 0.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Input and Select hover/focus styles for dashboard member */
+[class*="bg-black/40"] input,
+[class*="bg-black/40"] select {
+  border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+[class*="bg-black/40"] input:hover,
+[class*="bg-black/40"] select:hover {
+  border-color: rgba(6, 182, 212, 0.5) !important;
+}
+
+[class*="bg-black/40"] input:focus,
+[class*="bg-black/40"] select:focus {
+  border-color: rgba(6, 182, 212, 0.6) !important;
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.5) !important;
+  outline: none !important;
+}
+
